@@ -1,0 +1,87 @@
+﻿@model Habit.Models.Habits
+<form asp-action="Create" method="post">
+	<div class="border p-3">
+		<div asp-validation-summary="All" class="text-danger"></div>
+		<div class="form-group row">
+			<h2 class="text-info pl-3">Add habit</h2>
+		</div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row mb-3">
+                    
+                    <div class="col-4">
+                        <label asp-for="HabitName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="HabitName" class="form-control" required />
+                        <span asp-validation-for="HabitName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                   
+                    <div class="col-4">
+                        <label asp-for="Frequency"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Frequency" class="form-control">
+                            <option>-- Select Option --</option>
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                        </select>
+                        <span asp-validation-for="Frequency" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-4">
+                   
+                    <div class="col-4">
+                        <label asp-for="StartDate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="StartDate" type="date" class="form-control" required />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+
+                    <div class="col-4">
+                        <label asp-for="CompletedDays"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="CompletedDays" type="text" class="form-control" required disabled/>
+                        <span asp-validation-for="CompletedDays" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+
+                    <div class="col-4">
+                        <label asp-for="TargetDays"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="TargetDays" type="text" class="form-control" required />
+                        <span asp-validation-for="TargetDays" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-4">
+                  
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">
+                                Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="col-4">
+			@* Keep this empty ?*@
+		</div>
+	</div>
+</form>
